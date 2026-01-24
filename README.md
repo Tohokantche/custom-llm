@@ -23,32 +23,27 @@ pip install -r requirements.txt
 Generate data, train, and evaluate your LLMs model with the default configuration
 ```yaml
 # Train on 1 GPU using the default shell script (for linux environment)
-
 chmod +x run_train.sh
 ./run_training.sh
 
 # Train on multiple GPUs using the default shell script (for linux environment)
-
 chmod +x run_distributed_train.sh
 ./run_distributed_training.sh
 
 # Train on 1 GPU using the Python script and your configuration file (for windows and linux environment)
-
 python scripts/main.py  --config configs/default_config.yaml
 
 # Train on multiple GPUs (i.e., 5) using the Python script and your configuration (for windows and linux environment)
-
 torchrun --nproc_per_node 5 scripts/main.py  --config configs/default_config.yaml
 ```
 
 Deployment and inference
 ```yaml
 # Deploy your trained LLM using vLLM as inference engine and open-webui for the user interface
-
 cd configs && docker-compose up -d
 
 ```
-## GPU memory requirement for fine-tuning open source LLMs
+## GPU memory requirement for efficient fine-tuning of open source LLMs
 
 ![The San Juan Mountains are beautiful](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
 
@@ -56,7 +51,7 @@ cd configs && docker-compose up -d
 
 This repo is inspired by <a href="https://github.com/unslothai/unsloth">Unsloth AI</a>. They are doing an amazing job for efficient LLMs post-training. Make sure to check them out anf buy them a coffee!
 
-## 📜  License
+## License
 
 This project is licensed under the Apache 2.0 License – see the [LICENSE](LICENSE) file for details. You are free to use, modify, and distribute it in either commercial or academic projects under the terms of this license.
 
