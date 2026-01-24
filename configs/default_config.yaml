@@ -4,8 +4,8 @@ app_command_timeout: 15
 
 # Data generation and pre-processing hyper-parameters
 gen_data_config:
+# URL of the document that you want to fine-tune your LLMs on
   doc_url: "https://arxiv.org/html/1706.03762v7"
-  #synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
   from_pretrained:
   # Choose any model from https://huggingface.co/unsloth
     model_name: unsloth/Llama-3.2-3B-Instruct 
