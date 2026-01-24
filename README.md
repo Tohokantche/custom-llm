@@ -5,7 +5,7 @@
 * Data generation and pre-processing,
 * Model fine-tuning,
 * Model evaluation (via <a href="https://github.com/huggingface/lighteval">LightEval</a> library by <a href="https://huggingface.co/">HugginFace</a>), 
-* Mdel serving (via <a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a>).  
+* Model inference and serving (<a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a> via <a href="[https://github.com/open-webui/open-webui](https://github.com/docker)">Docker</a>  ).  
 > The pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file for easily change of models (i.e., gpt-oss, Qwen, DeepSeek,Gemma LLaMA), dataset, training, and evaluation hyperparameters.
 
 
@@ -37,7 +37,7 @@ python scripts/main.py  --config configs/default_config.yaml
 torchrun --nproc_per_node 5 scripts/main.py  --config configs/default_config.yaml
 ```
 
-Deployment and inference
+Deployment and inference using Docker
 ```yaml
 # Deploy your trained LLM using vLLM as inference engine and open-webui for the user interface
 cd configs && docker-compose up -d
@@ -49,7 +49,7 @@ cd configs && docker-compose up -d
 
 ## Acknowledgments 
 
-This repo is inspired by <a href="https://github.com/unslothai/unsloth">Unsloth AI</a>. They are doing an amazing job for efficient LLMs post-training. Make sure to check them out and buy them a coffee!
+This repo is inspired by <a href="https://huggingface.co/">HugginFace</a> and  <a href="https://github.com/unslothai/unsloth">Unsloth AI</a>. They are doing an amazing job for efficient LLMs post-training. Make sure to check them out and buy them a coffee!
 
 ## License
 
