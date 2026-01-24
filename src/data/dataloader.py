@@ -24,7 +24,7 @@ class ProcessDataset:
         format_qa_pairs_filenames = []
 
         # To-DO: parallelise this step with respect to the ressources available
-        for filename in self.filenames[:3]:
+        for filename in self.filenames:
             # Generate QA pairs from files
             command = ["synthetic-data-kit", "-c", self.config['synthetic_data_kit_config'], "create", filename, 
                        "--num-pairs", str(self.config['data_transform_config']['num_pairs']), "--type", 
