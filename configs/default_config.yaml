@@ -1,0 +1,101 @@
+
+app_seed: &seed 3407
+app_command_timeout: 15
+
+# Data generation and pre-processing hyper-parameters
+gen_data_config:
+  doc_url: "https://arxiv.org/html/1706.03762v7"
+  synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
+  from_pretrained:
+  # Choose any model from https://huggingface.co/unsloth
+    model_name: unsloth/Llama-3.2-3B-Instruct 
+    max_seq_length: 2048
+  prepare_qa_generation:
+    output_folder: "data"
+    temperature: 0.7
+    top_p: 0.95
+    overlap: 64
+    max_generation_tokens: 512
+  data_transform_config: 
+    ft_data_format: "qa"
+    num_pairs: 25
+    filter_threshold: 0.0
+    split_ratio : 0.15
+
+unsloth_model_config:
+# Choose any open source model from https://huggingface.co/unsloth
+  model_name: "unsloth/Llama-3.2-3B-Instruct"
+  max_seq_length: 2048
+  load_in_4bit: True
+  load_in_8bit: False
+  full_finetuning: False
+
+# Parameters efficient fine-training (PEFT) hyper-parameters
+unsloth_peft_config:
+  r: 16
+  target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "o_proj"
+  - "gate_proj"
+  - "up_proj"
+  - "down_proj"
+  lora_alpha: 16
+  lora_dropout: 0
+  bias: "none"
+  use_gradient_checkpointing: "unsloth"
+  random_state: *seed
+  use_rslora: false
+  loftq_config: None
+
+# Hyper-parameters for sft training
+hf_sft_config:
+  dataset_text_field: "text"
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 4
+  warmup_steps: 5
+  max_steps: 60
+  learning_rate: 0.0002
+  logging_steps: 1
+  optim: "adamw_8bit"
+  weight_decay: 0.001
+  lr_scheduler_type: "linear"
+  seed: *seed
+  report_to: "wandb" # Use wandb, TrackIO/WandB etc
+
+# Save the trained model locally 
+saved_model_config:
+  checkpoint_dir: "./src/checkpoints"
+  log_dir: "./src/logs"
+  saving_format: 
+  - "vllm"
+  #- "GGUF" # Enable this for deployment using ollama
+
+# HuggingFace Configuration to save models on Hub
+hf_hub_config:
+  push_hub: False
+  hf_username: "Tohokantche"
+  hf_token: "hf_xxxxx"
+
+# Specify the evaluation tasks or defined a new one
+eval_config:
+  # Choose any standard tasks name from https://huggingface.co/docs/lighteval/main/en/available-tasks
+  std_tasks: 
+  - "ifeval"
+  - "mmlu"
+
+  # Add a custom task using the task template at src/tasks/tasks_template
+  custom_tasks:  
+    task_name: 
+    - "task_1"
+    - "task_2"
+    task_path: 
+    - "./src/tasks/task_1_path"
+    - "./src/tasks/task_2_path"
+
+# Saving training and evalution artifacts on Weight & Bias   
+wandb_config:
+  wandb_project: "llms-finetuning"
+  wandb_api_key: "738cb81631a4bd558f3c8a81caf7e051972ddb35"
+  entity: "sft-training"

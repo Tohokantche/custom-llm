@@ -1,0 +1,42 @@
+# DEPLOY THE CHATBOT USING vLLM AND OPEN Web-UI
+# To run services : docker-compose up -d
+# To protect server:  https://github.com/protectai/llm-guard
+
+services:
+  vllm-server:
+    image: vllm/vllm-openai:latest
+    container_name: vllm-server
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ~/.cache/local_models:/root/.cache/local_models # Host path for model cache
+    # Qwen/Qwen3-0.6B-Chat
+    command: >
+      serve ../src/checkpoints/ft_model_16bit_vllm
+      --host 0.0.0.0 --port 8000
+      --dtype float16 --gpu-memory-utilization 0.7
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    environment:
+      # Link to the vLLM service name defined in this compose file
+      OPENAI_API_BASE_URL: http://vllm-server:8000/v1 
+      OPENAI_API_KEY: none
+      ENABLE_OLLAMA_API: false
+    volumes:
+      - open-webui-data:/app/backend/data
+
+volumes:
+  open-webui-data:
