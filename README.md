@@ -44,9 +44,8 @@ Deployment and inference using Docker
 cd configs && docker-compose up -d
 
 ```
-## GPU memory requirement for efficient fine-tuning of any open-source LLMs
-
-![The San Juan Mountains are beautiful](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
+## GPU memory requirement for training
+![VRAM requirements](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
 
 ## Acknowledgments 
 
