@@ -24,7 +24,7 @@ def evaluate_llm(config: Dict):
     )
     pipeline_params = PipelineParameters(
         launcher_type=ParallelismManager.ACCELERATE,
-        custom_tasks_directory=config['task_path'],  # Set to path if using custom tasks
+        custom_tasks_directory=config['task_path'],
         # Remove the parameter below once your configuration is tested
         #max_samples=10
     )
