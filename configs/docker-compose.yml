@@ -1,6 +1,6 @@
-# DEPLOY THE CHATBOT USING vLLM AND OPEN Web-UI
+# DEPLOY THE CHATBOT USING vLLM AND OPEN-Web-UI
 # To run services : docker-compose up -d
-# To protect server:  https://github.com/protectai/llm-guard
+# To protect your LLM server visit:  https://github.com/protectai/llm-guard
 
 services:
   vllm-server:
