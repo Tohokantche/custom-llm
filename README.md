@@ -13,12 +13,10 @@
 After cloning this repo, install dependencies
 ```yaml
 # 1. Clone repository 
-
 git clone https://github.com/Tohokantche/custom-llm.git
 cd custom-llm
 
 # 2. Install requirements
-
 pip install -r requirements.txt
 ```
 
