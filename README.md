@@ -6,7 +6,7 @@
 * Model fine-tuning,
 * Model evaluation (via <a href="https://github.com/huggingface/lighteval">LightEval</a> library by <a href="https://huggingface.co/">HugginFace</a>), 
 * Model inference and serving (<a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a> via <a href="https://github.com/docker">Docker</a>  ).  
-> The pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file for easily change of models (i.e., gpt-oss, Qwen, DeepSeek,Gemma LLaMA), dataset, training, and evaluation hyperparameters.
+> The pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file for easily change models (i.e., gpt-oss, Qwen, DeepSeek,Gemma LLaMA), dataset, training, and evaluation hyperparameters.
 
 
 ## Getting started
