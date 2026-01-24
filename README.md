@@ -54,7 +54,7 @@ This repo is inspired by <a href="https://huggingface.co/">HugginFace</a> and  <
 
 ## License
 
-This project is licensed under the Apache 2.0 License – see the [LICENSE](LICENSE) file for details. You are free to use, modify, and distribute it in either commercial or academic projects under the terms of this license.
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details. You are free to use, modify, and distribute it in either commercial or academic projects under the terms of this license.
 
 
 
