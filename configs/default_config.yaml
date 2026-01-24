@@ -5,7 +5,7 @@ app_command_timeout: 15
 # Data generation and pre-processing hyper-parameters
 gen_data_config:
   doc_url: "https://arxiv.org/html/1706.03762v7"
-  synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
+  #synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
   from_pretrained:
   # Choose any model from https://huggingface.co/unsloth
     model_name: unsloth/Llama-3.2-3B-Instruct 
@@ -97,5 +97,5 @@ eval_config:
 # Saving training and evalution artifacts on Weight & Bias   
 wandb_config:
   wandb_project: "llms-finetuning"
-  wandb_api_key: "738cb81631a4bd558f3c8a81caf7e051972ddb35"
+  wandb_api_key: "your_wandb_api_key"
   entity: "sft-training"
