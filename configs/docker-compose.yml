@@ -13,9 +13,9 @@ services:
       - ~/.cache/local_models:/root/.cache/local_models # Host path for model cache
     # Qwen/Qwen3-0.6B-Chat
     command: >
-      serve ../src/checkpoints/ft_model_16bit_vllm
+      serve ../src/checkpoints/ft_model_16bit_vllm 
       --host 0.0.0.0 --port 8000
-      --dtype float16 --gpu-memory-utilization 0.7
+      --dtype float16 --gpu-memory-utilization 0.7 
     deploy:
       resources:
         reservations:
