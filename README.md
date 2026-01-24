@@ -7,7 +7,7 @@
 * :white_check_mark: Model evaluation (<a href="https://github.com/huggingface/lighteval">LightEval</a> from <a href="https://huggingface.co/">HugginFace</a>), 
 * :white_check_mark: Model inference and serving (<a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a> using <a href="https://github.com/docker">Docker</a>).
   
-> Pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file to enable easy hyperparameter tuning, model changes (i.e., gpt-oss, Qwen, DeepSeek, Gemma, LLaMA ...), and data source updates.
+> Pipeline configurations are stored in a YAML file (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) to enable easy hyperparameter tuning, model changes (i.e., gpt-oss, Qwen, DeepSeek, Gemma, LLaMA ...), and data source updates.
 
 
 ## Getting started
