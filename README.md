@@ -1,4 +1,4 @@
-# Efficiently train, evaluate and serve a customised LLMs
+# Efficiently train, evaluate and serve a customised LLM
 ## Use cases
 
 > This repo is an automated, easy-to-customize and end-to-end LLMs post-training pipeline that consists of the following components : 
