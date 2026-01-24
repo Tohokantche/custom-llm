@@ -2,11 +2,11 @@
 ## Use cases
 
 > This repo is an automated, easy-to-customize end-to-end LLMs post-training pipeline that consists of : 
-* Data generation and pre-processing (via <a href="https://github.com/meta-llama/synthetic-data-kit">Synthetic Data Kit</a>),
+&#9989 Data generation and pre-processing (via <a href="https://github.com/meta-llama/synthetic-data-kit">Synthetic Data Kit</a>),
 * Model fine-tuning,
 * Model evaluation (via <a href="https://github.com/huggingface/lighteval">LightEval</a> library by <a href="https://huggingface.co/">HugginFace</a>), 
 * Model inference and serving (<a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a> via <a href="https://github.com/docker">Docker</a>  ).  
-> The pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file for easily change models (i.e., gpt-oss, Qwen, DeepSeek,Gemma LLaMA), dataset, training, and evaluation hyperparameters.
+> Pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file to enable easy hyperparameter tuning, model changes (i.e., gpt-oss, Qwen, DeepSeek,Gemma LLaMA), and data source updates.
 
 
 ## Getting started
