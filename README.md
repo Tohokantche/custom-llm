@@ -2,10 +2,10 @@
 ## Use Cases
 
 > This repo is an automated, easy-to-customize end-to-end LLMs post-training pipeline that consists of : 
-* data generation and pre-processing
-* model fine-tuning
-* model evaluation (via <a href="https://github.com/huggingface/lighteval">LightEval</a> library by <a href="https://huggingface.co/">HugginFace</a>), 
-* and model serving (via <a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a>).  
+* Data generation and pre-processing
+* Model fine-tuning
+* Model evaluation (via <a href="https://github.com/huggingface/lighteval">LightEval</a> library by <a href="https://huggingface.co/">HugginFace</a>), 
+* Mdel serving (via <a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a>).  
 > The pipeline configurations are stored in a YAML (<a href="configs/default_config.yaml">configs/default_config.yaml </a>) file for easily change of models (i.e., gpt-oss, Qwen, DeepSeek,Gemma LLaMA), dataset, training, and evaluation hyperparameters.
 
 
