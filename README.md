@@ -23,19 +23,19 @@ pip install -r requirements.txt
 
 Generate data, train and evaluate your LLMs model with the default configuration
 ```yaml
-# Train on 1 GPU using the default shell script (for linux environment)
+# End-to-end training on 1 GPU using the default shell script (for linux environment)
 chmod +x run_train.sh
 ./run_training.sh
 
-# Train on multiple GPUs using the default shell script (for linux environment)
+# End-to-end training on multiple GPUs using the default shell script (for linux environment)
 chmod +x run_distributed_train.sh
 ./run_distributed_training.sh
 
-# Train on 1 GPU using the Python script and your configuration file (for windows and linux environment)
-python scripts/main.py  --config configs/default_config.yaml
+# End-to-end training on 1 GPU using the Python script and your configuration file (for windows and linux environment)
+python scripts/e2e_training.py  --config configs/default_config.yaml
 
-# Train on multiple GPUs (i.e., 5) using the Python script and your configuration (for windows and linux environment)
-torchrun --nproc_per_node 5 scripts/main.py  --config configs/default_config.yaml
+# End-to-end training on multiple GPUs (i.e., 5) using the Python script and your configuration (for windows and linux environment)
+torchrun --nproc_per_node 5 scripts/e2e_training.py  --config configs/default_config.yaml
 ```
 
 Deployment and inference using Docker
