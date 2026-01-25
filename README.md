@@ -49,7 +49,7 @@ cd configs && docker-compose up -d
 
 ## Acknowledgments 
 
-This repo is inspired by <a href="https://huggingface.co/">HugginFace</a> and  <a href="https://github.com/unslothai/unsloth">Unsloth AI</a>. They are doing an amazing job for efficient LLMs post-training. Make sure to check them out and buy them a coffee!
+This repo is inspired by <a href="https://huggingface.co/">HugginFace</a> and  <a href="https://github.com/unslothai/unsloth">Unsloth AI</a>. They are doing amazing jobs for an efficient LLMs post-training. Make sure to check them out and buy them a coffee!
 
 ## License
 
