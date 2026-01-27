@@ -6,8 +6,11 @@ app_command_timeout: 15
 gen_data_config:
 # URL of the document that you want to fine-tune your LLMs on
   doc_url: "https://arxiv.org/html/1706.03762v7"
+<<<<<<< Updated upstream
   synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
   
+=======
+>>>>>>> Stashed changes
   from_pretrained:
   # Choose any model from https://huggingface.co/unsloth
     model_name: unsloth/Llama-3.2-3B-Instruct 
