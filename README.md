@@ -21,7 +21,7 @@ cd custom-llm
 pip install -r requirements.txt
 ```
 
-End-to-end data generation, training and evaluation of your LLMs with the default configuration
+End-to-end data generation, training and evaluation of your LLM with the default configuration
 ```yaml
 # End-to-end training on 1 GPU using the default shell script (for linux environment)
 chmod +x run_train.sh
@@ -38,7 +38,7 @@ python scripts/e2e_training.py  --config configs/default_config.yaml
 torchrun --nproc_per_node 5 scripts/e2e_training.py  --config configs/default_config.yaml
 ```
 
-Deployment and inference using Docker
+Deployment and inference of your trained LLM using Docker
 ```yaml
 # Deploy your trained LLM using vLLM as inference engine and open-webui for the user interface
 cd configs && docker-compose up -d
