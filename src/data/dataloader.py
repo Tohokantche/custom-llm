@@ -25,11 +25,6 @@ class ProcessDataset:
         filter_qa_pairs_filenames = []
         format_qa_pairs_filenames = []
 
-<<<<<<< Updated upstream
-        # TO-DO: parallelise this step with respect to the resources available
-=======
-        # To-DO: parallelise this step with respect to the ressources available
->>>>>>> Stashed changes
         for filename in self.filenames:
             # Generate QA pairs from files
             command = ["synthetic-data-kit", "-c", self.config['synthetic_data_kit_config'], "create", filename, 
