@@ -21,7 +21,7 @@ cd custom-llm
 pip install -r requirements.txt
 ```
 
-Generate data, train and evaluate your LLMs model with the default configuration
+End-to-end data generation, training and evaluation of your LLMs with the default configuration
 ```yaml
 # End-to-end training on 1 GPU using the default shell script (for linux environment)
 chmod +x run_train.sh
