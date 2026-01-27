@@ -44,7 +44,7 @@ Deployment and inference using Docker
 cd configs && docker-compose up -d
 
 ```
-## GPU memory and data requirement for training
+## GPU memory and data requirement for efficient training
 ![VRAM requirements](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
 
 ## Acknowledgments 
