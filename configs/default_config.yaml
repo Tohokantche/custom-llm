@@ -93,8 +93,8 @@ eval_config:
     - "task_1"
     - "task_2"
     task_path: 
-    - "./src/tasks/task_1_path"
-    - "./src/tasks/task_2_path"
+    - "./src/tasks/task_1_file"
+    - "./src/tasks/task_2_file"
 
 # Saving training and evalution artifacts on Weight & Bias   
 wandb_config:
