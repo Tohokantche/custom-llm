@@ -47,6 +47,61 @@ cd configs && docker-compose up -d
 ## GPU memory and data requirement for efficient training
 ![VRAM requirements](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
 
+## File structure
+```text
+.
+├── configs
+│   ├── default_config.yaml
+│   ├── docker-compose.yml
+│   └── synthetic_data_kit_config.yaml
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── run_distributed_training.sh
+├── run_training.sh
+├── scripts
+│   ├── __pycache__
+│   │   └── main.cpython-39.pyc
+│   ├── e2e_training.py
+│   ├── evaluate_model.py
+│   ├── generate_data.py
+│   └── train_model.py
+└── src
+    ├── __init__.py
+    ├── __pycache__
+    │   └── __init__.cpython-39.pyc
+    ├── assets
+    │   └── Fine-tuning-requirements-on-Unsloth.jpg
+    ├── checkpoints
+    ├── data
+    │   ├── __init__.py
+    │   ├── dataloader.py
+    │   └── dataset.py
+    ├── evals
+    │   ├── __init__.py
+    │   └── evaluate.py
+    ├── logs
+    ├── models
+    │   ├── __init__.py
+    │   └── models.py
+    ├── notebooks
+    │   └── Simple_Inference.ipynb
+    ├── tasks
+    │   ├── __init__.py
+    │   └── tasks_template.py
+    ├── train.py
+    └── utils
+        ├── __init__.py
+        ├── __pycache__
+        │   ├── __init__.cpython-313.pyc
+        │   ├── __init__.cpython-39.pyc
+        │   ├── helpers.cpython-313.pyc
+        │   └── helpers.cpython-39.pyc
+        ├── helpers.py
+        └── metrics.py
+```
+
+
 ## Acknowledgments 
 
 This repo is inspired by <a href="https://huggingface.co/">HugginFace</a> and  <a href="https://github.com/unslothai/unsloth">Unsloth AI</a>. They are doing amazing jobs for an efficient LLMs post-training. Make sure to check them out and buy them a coffee!
