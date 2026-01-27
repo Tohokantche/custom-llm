@@ -38,7 +38,7 @@ python scripts/e2e_training.py  --config configs/default_config.yaml
 torchrun --nproc_per_node 5 scripts/e2e_training.py  --config configs/default_config.yaml
 ```
 
-Deployment and inference of your trained LLM using Docker
+Deployment and inference of your trained LLM using <a href="https://docs.docker.com/desktop/">Docker</a>
 ```yaml
 # Deploy your trained LLM using vLLM as inference engine and open-webui for the user interface
 cd configs && docker-compose up -d
