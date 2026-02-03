@@ -17,7 +17,11 @@ After cloning this repo, install dependencies
 git clone https://github.com/Tohokantche/custom-llm.git
 cd custom-llm
 
-# 2. Install requirements
+# 2. Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
+
+# 3. Install requirements
 pip install -r requirements.txt
 ```
 
