@@ -4,6 +4,7 @@
 > This repo is an automated, easy-to-customize and end-to-end LLMs post-training pipeline that consists of the following components : 
 * :white_check_mark: Data generation and pre-processing (<a href="https://github.com/meta-llama/synthetic-data-kit">Synthetic Data Kit</a>),
 * :white_check_mark: Model fine-tuning (<a href="https://huggingface.co/docs/trl/en/index">TRL</a>),
+* :white_check_mark: Training monitoring (<a href="https://wandb.ai/site/">Weight & Bias</a>),
 * :white_check_mark: Model evaluation (<a href="https://github.com/huggingface/lighteval">LightEval</a> of <a href="https://huggingface.co/">HugginFace</a>), 
 * :white_check_mark: Model inference and serving (<a href="https://github.com/vllm-project/vllm">vLLM</a> and <a href="https://github.com/open-webui/open-webui">Open-WebUI</a> using <a href="https://github.com/docker">Docker</a>).
   
