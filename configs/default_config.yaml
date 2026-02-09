@@ -6,11 +6,8 @@ app_command_timeout: 15
 gen_data_config:
 # URL of the document that you want to fine-tune your LLMs on
   doc_url: "https://arxiv.org/html/1706.03762v7"
-<<<<<<< Updated upstream
   synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
   
-=======
->>>>>>> Stashed changes
   from_pretrained:
   # Choose any model from https://huggingface.co/unsloth
     model_name: unsloth/Llama-3.2-3B-Instruct 
@@ -54,27 +51,37 @@ unsloth_peft_config:
   use_rslora: false
   loftq_config: None
 
-# Hyper-parameters for sft training
+# Hyper-parameters for sft training (TO DO)
 hf_sft_config:
-  dataset_text_field: "text"
-  per_device_train_batch_size: 2
-  gradient_accumulation_steps: 4
-  warmup_steps: 5
-  max_steps: 60
-  learning_rate: 0.0002
-  logging_steps: 1
-  optim: "adamw_8bit"
-  weight_decay: 0.001
-  lr_scheduler_type: "linear"
-  seed: *seed
-  report_to: "wandb" # Use wandb, TrackIO/WandB etc
+  sfttrainer:
+    dataset_text_field: "text"
+    # max(1, TARGET_GLOBAL_BATCH // max(1, WORLD_SIZE))
+    per_device_train_batch_size: 2
+    # increase this if you want bigger global batch without OOM
+    gradient_accumulation_steps: 4
+    warmup_steps: 5
+    max_steps: 60
+    learning_rate: 0.0002
+    logging_steps: 1
+    optim: "adamw_8bit"
+    weight_decay: 0.001
+    lr_scheduler_type: "linear"
+    seed: *seed
+    save_strategy: steps
+    save_steps : 2000
+    save_total_limit  : 20
+    logging_steps : 5
+    ddp_find_unused_parameters : False
+    report_to: "wandb" # Use wandb, TrackIO/WandB etc
+  train:
+    resume_from_checkpoint: None
 
 # Save the trained model locally 
 saved_model_config:
   checkpoint_dir: "./src/checkpoints"
   log_dir: "./src/logs"
   saving_format: 
-  - "vllm"
+  - "vllm"  # Enable this for deployment using vLLM
   #- "GGUF" # Enable this for deployment using ollama
 
 # HuggingFace Configuration to save models on Hub
