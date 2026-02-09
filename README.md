@@ -57,7 +57,7 @@ Please visit this link for an exemple of generated and curated data, and trained
 # Generated data
 https://huggingface.co/Tohokantche/datasets
 
-# Models (in vLLM, GGUF, and lora adapters format)
+# Trained models (in vLLM, GGUF, and lora adapters format)
 https://huggingface.co/Tohokantche/models
 ```
 
@@ -72,7 +72,6 @@ custom-llm
 │   ├── docker-compose.yml
 │   └── synthetic_data_kit_config.yaml
 ├── LICENSE
-├── README copy.md
 ├── README.md
 ├── requirements.txt
 ├── run_distributed_training.sh
