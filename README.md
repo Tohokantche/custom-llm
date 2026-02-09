@@ -13,7 +13,7 @@
 
 
 ## Getting started
-After cloning this repo, install dependencies
+After cloning this repo, install dependencies on a machine with Nvidia-GPU
 ```yaml
 # 1. Clone repository 
 git clone https://github.com/Tohokantche/custom-llm.git
