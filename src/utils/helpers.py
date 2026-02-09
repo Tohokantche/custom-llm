@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import time
 import torch
-from transformers import TextStreamer
+from transformers import TextStreamer, TrainerCallback
 from pathlib import Path
 from datasets import Dataset
 import yaml
@@ -51,6 +51,24 @@ class MemStats:
         logger.info(f"Peak reserved memory for training = {used_memory_for_lora} GB.")
         logger.info(f"Peak reserved memory % of max memory = {used_percentage} %.")
         logger.info(f"Peak reserved memory for training % of max memory = {lora_percentage} %.")
+
+
+class GradientGuard(TrainerCallback):
+    """Skip a step if grad_norm explodes (quick & dirty guard)."""
+    def on_step_end(self, args, state, control, **kwargs):
+        gn = kwargs.get("logs", {}).get("grad_norm")
+        if gn is None and state.log_history:
+            gn = state.log_history[-1].get("grad_norm")
+        if gn is not None and gn > 100:
+            logger.info(f"[Guard] grad_norm={gn:.1f} -> skip step {state.global_step}")
+            control.should_skip_next_step = True
+
+
+def clean_up_ddp(IS_DIST):
+    """Graceful DDP cleanup  """
+    if IS_DIST and torch.distributed.is_initialized():
+        torch.distributed.barrier()
+        torch.distributed.destroy_process_group()
 
 
 def execute_command(command: List[str], timeout: int) -> Union[subprocess.CompletedProcess[str], None]:
