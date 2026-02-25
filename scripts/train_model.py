@@ -51,15 +51,14 @@ def train_model():
                                        config_data['gen_data_config'].update(
                                        {"app_command_timeout": config_data['app_command_timeout']}))
     split_dataset = load_from_disk(os.path.join("./src/data/",config_data['app_seed']))
-    train_dataset = process_data.chat_template_transform(split_dataset['train'])
-    test_dataset = process_data.chat_template_transform(split_dataset['test'])
+    split_dataset = process_data.chat_template_transform(split_dataset)
     mem_stats = MemStats()
     logger.info(config_data['hf_sft_config'])
     trainer = SFTTrainer(
         model = model,
         processing_class = tokenizer,
-        train_dataset =  train_dataset,
-        eval_dataset = test_dataset,
+        train_dataset =  split_dataset['train'],
+        eval_dataset = split_dataset['test'],
         args = SFTConfig(**config_data['hf_sft_config']['sfttrainer']),
         callbacks = [GradientGuard()],
         )
