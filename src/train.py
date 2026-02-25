@@ -29,6 +29,8 @@ def train(config_data: Dict):
 
 
     ########################## DATA GENERATION FROM SEED DOCUMENT ##############################
+    config_data['gen_data_config'].update(
+                                       {"app_command_timeout": config_data['app_command_timeout']})
     gen_dataset = GenDataset(config_data['gen_data_config'])
     try:
         chunch_filenames = gen_dataset.gen_chunch_doc()
@@ -46,8 +48,7 @@ def train(config_data: Dict):
     model = get_peft_model(model, config_data['unsloth_peft_config'])
 
     process_data = ProcessDataset(gen_dataset.generator, chunch_filenames, tokenizer,
-                                   config_data['gen_data_config'].update(
-                                       {"app_command_timeout": config_data['app_command_timeout']}))
+                                   config_data['gen_data_config'])
     try:
         qa_dataset = process_data.qa_pairs_transform()
     except RuntimeError as error_message:
