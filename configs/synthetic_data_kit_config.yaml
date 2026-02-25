@@ -39,6 +39,7 @@ generation:
   overlap: 64             # Overlap between chunks to maintain context
   max_tokens: 512       # Maximum tokens in LLM responses
   num_pairs: 25 # Default number of QA pairs to generate
+  num_cot_examples: 5  # Default number of Chain of Thought examples to generate
 
 # Content cleanup parameters
 cleanup:
@@ -94,3 +95,30 @@ prompts:
     DO NOT include any text outside of the JSON array, just return valid JSON:
 
     {pairs}
+
+# Chain of Thought generation prompt
+  cot_generation: |
+    Create complex reasoning examples from this text that demonstrate chain-of-thought thinking.
+    
+    Each example should have:
+    1. A challenging question that requires step-by-step reasoning
+    2. Detailed reasoning steps that break down the problem
+    3. A concise final answer
+    
+    Return JSON format only:
+    
+    [
+      {{
+        "question": "Complex question about the text?",
+        "reasoning": "Step 1: First, I need to consider...\nStep 2: Then, I analyze...\nStep 3: Finally, I can conclude...",
+        "answer": "Final answer based on the reasoning."
+      }},
+      {{
+        "question": "Another complex question?",
+        "reasoning": "Step 1: First, I'll analyze...\nStep 2: Next, I need to determine...\nStep 3: Based on this analysis...",
+        "answer": "Final answer drawn from the reasoning."
+      }}
+    ]
+    
+    Text:
+    {text}
