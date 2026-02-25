@@ -41,7 +41,7 @@ python scripts/train_model.py  --config configs/default_config.yaml
 
 Standalone model evaluation pipeline
 ```yaml
-# Model training
+# Model evaluation
 python scripts/evaluate_model.py  --config configs/default_config.yaml
 ```
 
@@ -66,10 +66,9 @@ Deployment and inference of your trained LLM using <a href="https://docs.docker.
 ```yaml
 # Deploy your trained LLM using vLLM as inference engine and open-webui for the user interface
 cd configs && docker-compose up -d
-
 ```
 
-## An exemple of generated data and trained models 
+## Demo of generated data and trained models 
 Please visit this link for an exemple of generated and curated data, and trained model:
 ```yaml
 # Generated data
@@ -79,7 +78,7 @@ https://huggingface.co/Tohokantche/datasets
 https://huggingface.co/Tohokantche/models
 ```
 
-## GPU memory and data requirement for efficient training
+## GPU memory and data requirement for an efficient training
 ![VRAM requirements](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
 
 ## File structure
