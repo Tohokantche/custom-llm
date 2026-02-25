@@ -17,9 +17,9 @@ class GenDataset:
         for filename in files:
             try:
                 os.remove(filename)
-                print(f"Removed: {filename}")
+                logger.info(f"Removed: {filename}")
             except OSError as e:
-                print(f"Error removing {filename}: {e}")
+                logger.error(f"Error removing {filename}: {e}")
         
     def set_generator (self):   
         self.generator = SyntheticDataKit.from_pretrained(**self.config['from_pretrained'])  
@@ -32,7 +32,7 @@ class GenDataset:
 
         command = ["synthetic-data-kit", "-c", self.config['synthetic_data_kit_config'], "ingest", 
                    f"{self.config['doc_url']}"]
-        result = execute_command(command)
+        result = execute_command(command, int(self.config['app_command_timeout']))
         if not(result and ("successfully extracted" in result.stdout)):
             raise RuntimeError(f"Failed to parse file from seed doc at: {self.config['doc_url']}")
         parse_doc_path = result.stdout.split("successfully extracted to ")[1].strip()
