@@ -68,7 +68,7 @@ Deployment and inference of your trained LLM using <a href="https://docs.docker.
 cd configs && docker-compose up -d
 ```
 
-## Demo of generated data and trained models 
+## <a href="https://huggingface.co/Tohokantche">Demo</a> of the generated data and trained models 
 Please visit this link for an exemple of generated and curated data, and trained model:
 ```yaml
 # Generated data
