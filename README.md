@@ -27,7 +27,25 @@ source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
 pip install -r requirements.txt
 ```
 
-End-to-end data generation, training and evaluation of your LLM with the default configuration
+Standalone data generation and filtering pipeline
+```yaml
+# Data generation 
+python scripts/generate_data.py  --config configs/default_config.yaml
+```
+
+Standalone model training pipeline
+```yaml
+# Model training
+python scripts/train_model.py  --config configs/default_config.yaml
+```
+
+Standalone model evaluation pipeline
+```yaml
+# Model training
+python scripts/evaluate_model.py  --config configs/default_config.yaml
+```
+
+End-to-end data generation, model (LLMs) training and evaluation with the default configuration
 ```yaml
 # End-to-end training on 1 GPU using the default shell script (for linux environment)
 chmod +x run_train.sh
@@ -68,49 +86,49 @@ https://huggingface.co/Tohokantche/models
 ```text
 custom-llm
 ├── configs
-│   ├── default_config.yaml
-│   ├── docker-compose.yml
-│   └── synthetic_data_kit_config.yaml
+│   ├── default_config.yaml                 # Configuration file 
+│   ├── docker-compose.yml                  # VLLM inference of the trained model via Docker
+│   └── synthetic_data_kit_config.yaml.     # Synthetic data generation configuration file
 ├── LICENSE
-├── README.md
-├── requirements.txt
-├── run_distributed_training.sh
-├── run_training.sh
+├── README.md                               # Documentation
+├── requirements.txt                        # Reauirements file to install project dependencies
+├── run_distributed_training.sh             # Distributed training script
+├── run_training.sh                         # Single GPU training script 
 ├── scripts
-│   ├── e2e_training.py
-│   ├── evaluate_model.py
-│   ├── generate_data.py
-│   └── train_model.py
+│   ├── e2e_training.py                     # End-to-end, data generation, training and evaluation script
+│   ├── evaluate_model.py                   # Standalone Model perfromance evaluation script 
+│   ├── generate_data.py                    # Standalone Synthetic data generation script
+│   └── train_model.py                      # Standalone Model training  script
 └── src
     ├── __init__.py
     ├── assets
     │   └── Fine-tuning-requirements-on-Unsloth.jpg
-    ├── checkpoints
+    ├── checkpoints                          # Saved models directory
     ├── data
-    │   ├── __init__.py
-    │   ├── dataloader.py
-    │   └── dataset.py
+    │   ├── __init__.py                     
+    │   ├── dataloader.py                    # Data processing and filtering pipeline
+    │   └── dataset.py                       # Data generation pipeline
     ├── evals
     │   ├── __init__.py
-    │   ├── evaluate.py
-    │   ├── if_eval.py
-    │   ├── mmlu_eval.py
-    │   ├── toxicity_eval.py
-    │   └── truthful_eval.py
-    ├── logs
+    │   ├── evaluate.py                      # Model evaluation pipeline
+    │   ├── if_eval.py                       # Instructions Following evaluation pipeline
+    │   ├── mmlu_eval.py                     # Language Understanding evaluation pipeline
+    │   ├── toxicity_eval.py                 # Toxicity evaluation pipeline
+    │   └── truthful_eval.py                 # Truthfulness evaluation pipeline
+    ├── logs                                 # Training logs directory
     ├── models
     │   ├── __init__.py
-    │   └── models.py
+    │   └── models.py                        # Model loading and instantianciation
     ├── notebooks
-    │   └── Simple_Inference.ipynb
+    │   └── Simple_Inference.ipynb           # Notebook to test model on a single prompt
     ├── tasks
     │   ├── __init__.py
-    │   └── tasks_template.py
-    ├── train.py
+    │   └── tasks_template.py                # Custom evaluation tasks template
+    ├── train.py                             # Training models
     └── utils
         ├── __init__.py
-        ├── helpers.py
-        └── metrics.py
+        ├── helpers.py                       # Helpers funtions
+        └── metrics.py                       # Custom evaluation metric template for tasks
 ```
 
 
