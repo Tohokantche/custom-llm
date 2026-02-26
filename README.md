@@ -78,7 +78,7 @@ https://huggingface.co/Tohokantche/datasets
 https://huggingface.co/Tohokantche/models
 ```
 
-## GPU memory and data requirement for an efficient training
+## Nvidia-GPU memory and data requirement for an efficient training
 ![VRAM requirements](src/assets/Fine-tuning-requirements-on-Unsloth.jpg "VRAM requirements")
 
 ## File structure
