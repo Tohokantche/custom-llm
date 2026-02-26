@@ -130,6 +130,11 @@ custom-llm
         └── metrics.py                       # Custom evaluation metric template for tasks
 ```
 
+## Contributing
+
+- Open issues for bugs or suggestions
+- Submit pull requests
+- ⭐ Star the repository if you find it useful!
 
 ## Acknowledgments 
 
