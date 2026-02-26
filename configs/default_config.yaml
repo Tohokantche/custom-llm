@@ -4,8 +4,8 @@ app_command_timeout: 15
 
 # Data generation and pre-processing hyper-parameters
 gen_data_config:
-# URL of the document that you want to fine-tune your LLMs on
-  doc_url: "https://arxiv.org/html/1706.03762v7"
+# URL/local file path of the document that you want to fine-tune your LLMs on
+  doc_url: "https://reports.weforum.org/docs/WEF_Global_Risks_Report_2026.pdf"
   synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
   
   from_pretrained:
@@ -21,7 +21,7 @@ gen_data_config:
   data_transform_config: 
     ft_data_format: "qa"
     num_pairs: 25
-    filter_threshold: 0.0
+    filter_threshold: 8.0
     split_ratio : 0.15
 
 unsloth_model_config:
