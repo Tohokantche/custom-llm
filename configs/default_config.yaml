@@ -5,7 +5,7 @@ app_command_timeout: 15
 # Data generation and pre-processing hyper-parameters
 gen_data_config:
 # URL/local file path of the document that you want to fine-tune your LLMs on
-  doc_url: "https://arxiv.org/html/1706.03762v7"
+  doc_url: "https://reports.weforum.org/docs/WEF_Global_Risks_Report_2026.pdf"
   synthetic_data_kit_config: "configs/synthetic_data_kit_config.yaml"
   
   from_pretrained:
